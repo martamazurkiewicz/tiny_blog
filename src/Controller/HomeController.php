@@ -6,7 +6,6 @@ namespace App\Controller;
 
 use App\Entity\NormalDistribution;
 use App\Form\NormalDistributionType;
-use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,7 +17,6 @@ class HomeController extends AbstractController
      * @Route("/", name="home")
      * @param Request $request
      * @return Response
-     * @throws \Exception
      */
     public function index(Request $request)
     {

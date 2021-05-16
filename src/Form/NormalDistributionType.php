@@ -24,9 +24,6 @@ class NormalDistributionType extends AbstractType
                     'class' => 'form-control',
                     'placeholder' => '-10'
                 ],
-                'label_attr' => [
-                    'class' => 'sr-only'
-                ],
                 'required' => false,
                 'empty_data' => -10,
             ])
@@ -34,9 +31,6 @@ class NormalDistributionType extends AbstractType
                 'attr' => [
                     'class' => 'form-control',
                     'placeholder' => '20'
-                ],
-                'label_attr' => [
-                    'class' => 'sr-only'
                 ],
                 'required' => false,
                 'empty_data' => 20,
@@ -46,9 +40,6 @@ class NormalDistributionType extends AbstractType
                     'class' => 'form-control',
                     'placeholder' => '0.0'
                 ],
-                'label_attr' => [
-                    'class' => 'sr-only'
-                ],
                 'required' => false,
                 'empty_data' => 0.0,
             ])
@@ -56,9 +47,6 @@ class NormalDistributionType extends AbstractType
                 'attr' => [
                     'class' => 'form-control',
                     'placeholder' => '1.0'
-                ],
-                'label_attr' => [
-                    'class' => 'sr-only'
                 ],
                 'required' => false,
                 'empty_data' => 1.0,
