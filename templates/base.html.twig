@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>{% block title %}Tiny programming blog{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('css/site.css') }}"/>
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
@@ -14,6 +16,52 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+            <div class="navbar">
+                <div class="row">
+                    <div class="column" style="text-align: left;">
+                        <a href="#">
+                            <img src="{{ asset('images/menu_icon.ico') }}" alt="menu"/>
+                        </a>
+                        <a href="#">
+                            <img src="{{ asset('images/search_icon.ico') }}" alt="search"/>
+                        </a>
+                    </div>
+                    <div class="column" style="text-align: right;">
+                        <a href="#">
+                            <img src="{{ asset('images/facebook_icon.ico') }}" alt="facebook"/>
+                        </a>
+                        <a href="#">
+                            <img src="{{ asset('images/twitter_icon.ico') }}" alt="twitter"/>
+                        </a>
+                    </div>
+                    <div class="row">
+                        <h2>
+                            Well, yes... But how to code it?
+                        </h2>
+                        <h3>
+                            Tiny programming blog
+                        </h3>
+                    </div>
+                </div>
+                <div class="topics">
+                    <a href="#">Databases</a>
+                    <a href="#">.NET</a>
+                    <a href="#">Raspberry Pi</a>
+                    <a href="#">Arduino</a>
+                    <a href="#">Python</a>
+                    <a href="#">Flutter</a>
+                </div>
+            </div>
+            <div class="footer">
+                <a href="#">ABOUT</a>
+                <a href="#">PRIVACY</a>
+                <a href="#">SOCIAL</a>
+                <a href="#">CONTACT</a>
+                <p>
+                    Designed by Marta Mazurkiewicz
+                </p>
+            </div>
+        {% endblock %}
     </body>
 </html>
