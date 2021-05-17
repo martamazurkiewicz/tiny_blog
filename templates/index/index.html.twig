@@ -13,25 +13,25 @@
                     {{ form_start(form) }}
                     <h2 class="titleHeadline">Generate Normal Distribution</h2>
                     <div class="formGroup">
-                        <label for="rangeStart">{{ form_label(form.rangeStart) }}</label>
+                        {{ form_label(form.rangeStart) }}
                         <div class="formInput">
                             {{ form_widget(form.rangeStart) }}
                         </div>
                     </div>
                     <div class="formGroup">
-                        <label for="rangeStart">{{ form_label(form.sizeOfDataset) }}</label>
+                        {{ form_label(form.sizeOfDataset) }}
                         <div class="formInput">
                             {{ form_widget(form.sizeOfDataset) }}
                         </div>
                     </div>
                     <div class="formGroup">
-                        <label for="rangeStart">{{ form_label(form.mean) }}</label>
+                        {{ form_label(form.mean) }}
                         <div class="formInput">
                             {{ form_widget(form.mean) }}
                         </div>
                     </div>
                     <div class="formGroup" style="margin-bottom: 15px;">
-                        <label for="rangeStart">{{ form_label(form.standardDeviation) }}</label>
+                        {{ form_label(form.standardDeviation) }}
                         <div class="formInput">
                             {{ form_widget(form.standardDeviation) }}
                         </div>
