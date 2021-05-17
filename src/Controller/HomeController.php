@@ -25,16 +25,10 @@ class HomeController extends AbstractController
         $normalDistributionForm->createView();
         $normalDistributionForm->handleRequest($request);
         if ($normalDistributionForm->isSubmitted() && $normalDistributionForm->isValid()) {
-            $normalDistribution->generateDataset();
-            $arguments = $normalDistribution->getArguments();
-            $values = $normalDistribution->getValues();
-            $pairs = [];
-            for ($i = 0; $i < count($arguments); $i += 1) {
-                array_push($pairs, [$arguments[$i], $values[$i]]);
-            }
             return $this->render('index/index.html.twig', [
                 'submitted' => true,
-                'pairs' => $pairs,
+                'pairs' => $normalDistribution->getPairsArgumentValue(),
+                'sigmas' =>  $normalDistribution->get3sigmas(),
             ]);
         }
         return $this->render('index/index.html.twig', [

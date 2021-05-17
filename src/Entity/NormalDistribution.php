@@ -10,7 +10,9 @@ class NormalDistribution
     private $sizeOfDataset;
     private $mean;
     private $standardDeviation;
-    private $dataset;
+    private $arguments;
+    private $values;
+
 
     public function __construct()
     {
@@ -57,29 +59,60 @@ class NormalDistribution
         return $this->standardDeviation = $standardDeviation;
     }
 
-    public function getValues(): array
+    private function setArguments(): array
     {
-        return $this->dataset;
+        return $this->arguments = range($this->rangeStart, $this->rangeStart + $this->sizeOfDataset, $step = 1);
     }
 
-    public function getArguments(): array
+    private function setValues(): void
     {
-        return range($this->rangeStart, $this->rangeStart + $this->sizeOfDataset, $step = 1);
-    }
-
-    public function generateDataset(): void
-    {
-        $this->dataset = [];
-        $arguments = $this->getArguments();
-        foreach ($arguments as $x) {
-            array_push($this->dataset, $this->getDensity($x));
+        $this->values = [];
+        $isTrimmedLowerBound = false;
+        $isTrimmedUpperBound = false;
+        foreach ($this->arguments as $x) {
+            $density = $this->getDensity($x);
+            if ($density != 0) {
+                $this->values[$x] = $density;
+            } elseif ($isTrimmedLowerBound == false && $x < $this->mean) {
+                $this->values[$x] = 0;
+                $isTrimmedLowerBound = true;
+            } elseif ($isTrimmedUpperBound == false && $x > $this->mean) {
+                $this->values[$x] = 0;
+                $isTrimmedUpperBound = true;
+            }
         }
+        if ($isTrimmedLowerBound || $isTrimmedUpperBound) {
+            $this->clearArguments();
+        }
+    }
+
+    private function clearArguments()
+    {
+        $this->arguments = array_keys($this->values);
     }
 
     private function getDensity($x): float
     {
         $exponent = -0.5 * pow(($x - $this->mean) / $this->standardDeviation, 2);
         return exp($exponent) / ($this->standardDeviation * sqrt(2 * pi()));
+    }
+
+    public function getPairsArgumentValue(): array
+    {
+        $this->setArguments();
+        $this->setValues();
+        return $this->values;
+    }
+
+    public function get3sigmas()
+    {
+        $rule = [];
+        for ($i = 1; $i <= 3; $i++) {
+            $lowerBound = $this->mean - $i * $this->standardDeviation;
+            $upperBound = $this->mean + $i * $this->standardDeviation;
+            array_push($rule, [$lowerBound, $upperBound]);
+        }
+        return $rule;
     }
 
     //private void checkDataCorrectness(){}

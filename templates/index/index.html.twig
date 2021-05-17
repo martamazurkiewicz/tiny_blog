@@ -70,9 +70,15 @@
         </div>
     {% else %}
         <div class="row justify-content-center">
-        {% for pair in pairs %}
-            <p>{{ pair[0] }}: {{ pair[1] }}</p>
+        {% for key,value in pairs %}
+            <p>Key : {{ key }}
+                Value : {{ value }}</p>
         {% endfor %}
+        <div>
+            <p>68% of observations are in range between {{ sigmas[0][0] }} and {{ sigmas[0][1] }}</p>
+            <p>95% of observations are in range between {{ sigmas[1][0] }} and {{ sigmas[1][1] }}</p>
+            <p>99% of observations are in range between {{ sigmas[2][0] }} and {{ sigmas[2][1] }}</p>
+        </div>
         <a href="{{ path('home') }}">Close report</a>
     {% endif %}
 {% endblock %}
