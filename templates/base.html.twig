@@ -40,9 +40,6 @@
                     <h2>
                         Well, yes... But how to code it?
                     </h2>
-                    <h3>
-                        Tiny programming blog
-                    </h3>
                 </div>
             </div>
             <div class="topics">
@@ -53,6 +50,12 @@
                 <a href="#">Python</a>
                 <a href="#">Flutter</a>
             </div>
+        </div>
+    {% endblock %}
+    {% block main %}
+        <div class="main" style="background-image: url('{{ asset('images/background.jpg') }}')">
+            <h3>Tiny programming blog</h3>
+            <button type="button">ALL ARTICLES ></button>
         </div>
     {% endblock %}
     {% block page_content %}
