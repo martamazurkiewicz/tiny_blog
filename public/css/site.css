@@ -95,13 +95,13 @@ button {
   border-radius: 5px;
   font-size: 12px;
   cursor: pointer;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
   transform: translateY(-4px);
   color: white;
-  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
   background-color: gray;
   border-color: gray;
 }
@@ -110,8 +110,8 @@ button:hover {
   border-bottom: 1px solid white;
 }
 .navbar img {
-  max-height: 23px;
-  width: auto;
+  height: 23px;
+  width: 23px;
 }
 .navbar .column {
   width: 50%;
