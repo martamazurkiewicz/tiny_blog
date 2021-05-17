@@ -24,12 +24,25 @@ class HomeController extends AbstractController
         $normalDistributionForm = $this->createForm(NormalDistributionType::class, $normalDistribution);
         $normalDistributionForm->createView();
         $normalDistributionForm->handleRequest($request);
-        if ($normalDistributionForm->isSubmitted() && $normalDistributionForm->isValid()) {
-            return $this->render('index/index.html.twig', [
-                'submitted' => true,
-                'pairs' => $normalDistribution->getPairsArgumentValue(),
-                'sigmas' =>  $normalDistribution->get3sigmas(),
-            ]);
+        if ($normalDistributionForm->isSubmitted()) {
+            if ($normalDistributionForm->isValid()) {
+                return $this->render('index/index.html.twig', [
+                    'submitted' => true,
+                    'pairs' => $normalDistribution->getPairsArgumentValue(),
+                    'sigmas' => $normalDistribution->get3sigmas(),
+                ]);
+            } elseif ($normalDistributionForm->isValid() === false) {
+                foreach ($normalDistributionForm as $fieldName => $formField) {
+                    foreach ($formField->getErrors(true) as $error) {
+                        $normalDistribution->correctData($fieldName);
+                        return $this->render('index/index.html.twig', [
+                            'submitted' => true,
+                            'pairs' => $normalDistribution->getPairsArgumentValue(),
+                            'sigmas' => $normalDistribution->get3sigmas(),
+                        ]);
+                    }
+                }
+            }
         }
         return $this->render('index/index.html.twig', [
             'submitted' => false,

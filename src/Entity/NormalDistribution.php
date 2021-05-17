@@ -13,7 +13,6 @@ class NormalDistribution
     private $arguments;
     private $values;
 
-
     public function __construct()
     {
 
@@ -99,6 +98,7 @@ class NormalDistribution
 
     public function getPairsArgumentValue(): array
     {
+        $this->limitRange();
         $this->setArguments();
         $this->setValues();
         return $this->values;
@@ -115,7 +115,24 @@ class NormalDistribution
         return $rule;
     }
 
-    //private void checkDataCorrectness(){}
+    private function limitRange()
+    {
+        if ($this->sizeOfDataset > 400) {
+            $this->sizeOfDataset = 400;
+        }
+    }
 
+    public function correctData($fieldName): void
+    {
+        if ($fieldName == "rangeStart") {
+            $this->rangeStart = -10;
+        } elseif ($fieldName == "sizeOfDataset") {
+            $this->sizeOfDataset = 20;
+        } elseif ($fieldName == "mean") {
+            $this->mean = 0.0;
+        } elseif ($fieldName == "standardDeviation") {
+            $this->standardDeviation = 1.0;
+        }
+    }
 
 }
