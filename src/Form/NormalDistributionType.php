@@ -25,7 +25,7 @@ class NormalDistributionType extends AbstractType
                     'placeholder' => '-10'
                 ],
                 'required' => false,
-                'empty_data' => -10,
+                'empty_data' => '-10',
             ])
             ->add('sizeOfDataset', IntegerType::class, [
                 'attr' => [
@@ -33,7 +33,7 @@ class NormalDistributionType extends AbstractType
                     'placeholder' => '20'
                 ],
                 'required' => false,
-                'empty_data' => 20,
+                'empty_data' => '20',
             ])
             ->add('mean', NumberType::class, [
                 'attr' => [
@@ -41,7 +41,7 @@ class NormalDistributionType extends AbstractType
                     'placeholder' => '0.0'
                 ],
                 'required' => false,
-                'empty_data' => 0.0,
+                'empty_data' => '0.0',
             ])
             ->add('standardDeviation', NumberType::class, [
                 'attr' => [
@@ -49,7 +49,7 @@ class NormalDistributionType extends AbstractType
                     'placeholder' => '1.0'
                 ],
                 'required' => false,
-                'empty_data' => 1.0,
+                'empty_data' => '1.0',
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Generate Normal Distribution'
