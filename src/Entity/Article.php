@@ -27,16 +27,6 @@ class Article
     /**
      * @ORM\Column(type="string", length=60)
      */
-    private $category_pl;
-
-    /**
-     * @ORM\Column(type="string", length=60)
-     */
-    private $category_en;
-
-    /**
-     * @ORM\Column(type="string", length=60)
-     */
     private $title_pl;
 
     /**
@@ -59,6 +49,12 @@ class Article
      */
     private $contentEns;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="article")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $category;
+
     public function __construct()
     {
         $this->contentPls = new ArrayCollection();
@@ -78,30 +74,6 @@ class Article
     public function setReleaseDate(\DateTimeInterface $release_date): self
     {
         $this->release_date = $release_date;
-
-        return $this;
-    }
-
-    public function getCategoryPl(): ?string
-    {
-        return $this->category_pl;
-    }
-
-    public function setCategoryPl(string $category_pl): self
-    {
-        $this->category_pl = $category_pl;
-
-        return $this;
-    }
-
-    public function getCategoryEn(): ?string
-    {
-        return $this->category_en;
-    }
-
-    public function setCategoryEn(string $category_en): self
-    {
-        $this->category_en = $category_en;
 
         return $this;
     }
@@ -198,6 +170,18 @@ class Article
                 $contentEn->setArticle(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }
