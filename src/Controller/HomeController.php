@@ -21,11 +21,9 @@ class HomeController extends AbstractController
     public function index(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $categories = $em->getRepository(Category::class)->findAll();
         $articles = $em->getRepository(Article::class)->findAll();
 
         return $this->render('index/index.html.twig', [
-            'categories' => $categories,
             'articles' => $articles,
         ]);
     }

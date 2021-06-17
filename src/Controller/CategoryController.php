@@ -19,16 +19,16 @@ class CategoryController extends AbstractController
     public function index(Request $request): Response
     {
         $articles = $this->getCategorizedArticles($request->query->get('categoryName'));
-        return $this->render('categories/index.html.twig', [
+        return $this->render('category/index.html.twig', [
             'controller_name' => 'CareerController',
-            'careers' => $articles
+            'articles' => $articles
         ]);
 
     }
 
     private function getCategorizedArticles(string $categoryName){
         $em = $this->getDoctrine()->getManager();
-        $category = $em->getRepository(Category::class)->findOneByName($categoryName);
-        $articles = $em->getRepository(Article::class)->findBy(['category' => $category]);
+        $category = $em->getRepository(Category::class)->findOneBy(['name_en' => $categoryName]);
+        return $em->getRepository(Article::class)->findBy(['category' => $category]);
     }
 }
