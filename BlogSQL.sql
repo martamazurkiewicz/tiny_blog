@@ -9,11 +9,11 @@
  );
  CREATE TABLE Article (
  article_id int NOT NULL,
- realease_date DATE NOT NULL,
- category_pl VARCHAR(45) NOT NULL,
- category_en VARCHAR(45) NOT NULL,
- title_pl VARCHAR(45) NOT NULL,
- title_en VARCHAR(45) NOT NULL,
+ release_date DATE NOT NULL,
+ category_pl VARCHAR(60) NOT NULL,
+ category_en VARCHAR(60) NOT NULL,
+ title_pl VARCHAR(60) NOT NULL,
+ title_en VARCHAR(60) NOT NULL,
  code_id int NOT NULL,
  PRIMARY KEY (article_id),
  FOREIGN KEY (code_id) REFERENCES Code(code_id)
