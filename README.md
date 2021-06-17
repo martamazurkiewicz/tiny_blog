@@ -1,4 +1,8 @@
 DOCTRINE COMMANDS: <br>
 php bin/console make:entity <br>
 php bin/console make:migration <br>
-php bin/console doctrine:migrations:migrate
+php bin/console doctrine:migrations:migrate <br>
+SASS COMMANDS: <br>
+sass --watch public/scss:public/css <br>
+START SYMFONY SERVER: <br>
+symfony server:start

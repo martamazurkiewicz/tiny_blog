@@ -20,54 +20,40 @@
     {% block navbar %}
         <div class="navbar">
             <div class="row">
-                <div class="column" style="text-align: left;">
-                    <a href="#">
-                        <img src="{{ asset('images/menu_icon.ico') }}" alt="menu"/>
-                    </a>
-                    <a href="#">
-                        <img src="{{ asset('images/search_icon.ico') }}" alt="search"/>
-                    </a>
-                </div>
-                <div class="column" style="text-align: right;">
-                    <a href="#">
-                        <img src="{{ asset('images/facebook_icon.ico') }}" alt="facebook"/>
-                    </a>
-                    <a href="#">
-                        <img src="{{ asset('images/twitter_icon.ico') }}" alt="twitter"/>
-                    </a>
-                </div>
-                <div class="row">
+                <a href="{{ path('home') }}">
                     <h2>
                         Well, yes... But how to code it?
                     </h2>
-                </div>
+                </a>
             </div>
             <div class="topics">
-                <a href="#">Databases</a>
-                <a href="#">.NET</a>
-                <a href="#">Raspberry Pi</a>
-                <a href="#">Arduino</a>
-                <a href="#">Python</a>
-                <a href="#">Flutter</a>
+                <a href="{{ path('category', {'categoryName': 'Database'}) }}">Databases</a>
+                <a href="{{ path('category', {'categoryName': 'Oracle'}) }}">Oracle</a>
+                <a href="{{ path('category', {'categoryName': 'UML'}) }}">UML</a>
+                <a href="{{ path('category', {'categoryName': 'Symfony'}) }}">Symfony</a>
+                <a href="{{ path('category', {'categoryName': 'Python'}) }}">Python</a>
+                <a href="{{ path('category', {'categoryName': 'Flutter'}) }}">Flutter</a>
             </div>
         </div>
     {% endblock %}
     {% block main %}
         <div class="main" style="background-image: url('{{ asset('images/background.jpg') }}')">
-            <h3>Tiny programming blog</h3>
-            <button type="button">ALL ARTICLES ></button>
+            <div class="column" style="text-align: left;">
+                <h3>Tiny programming blog</h3>
+                <a href="{{ path('home') }}">
+                    <button type="button">ALL ARTICLES ></button>
+                </a>
+            </div>
         </div>
     {% endblock %}
     {% block page_content %}
     {% endblock %}
     {% block footer %}
         <div class="footer">
-            <a href="#">ABOUT</a>
-            <a href="#">PRIVACY</a>
-            <a href="#">SOCIAL</a>
-            <a href="#">CONTACT</a>
             <p>
-                Designed by Marta Mazurkiewicz
+                Designed by Marta Mazurkiewicz, 2021
+                <br>
+                Write me at email
             </p>
         </div>
     {% endblock %}
