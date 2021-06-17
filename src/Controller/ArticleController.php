@@ -22,13 +22,14 @@ class ArticleController extends AbstractController
 
         if (!$article) {
             throw $this->createNotFoundException(
-                'No article found for id '.$id
+                'No article found for id ' . $id
             );
         }
 
         return $this->render('article/index.html.twig', [
             'controller_name' => 'ArticleController',
             'article' => $article,
+            'photo' => 'images/' . $article->id . '.jpg',
         ]);
     }
 }
