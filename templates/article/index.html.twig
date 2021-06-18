@@ -4,22 +4,22 @@
 {% endblock %}
 {% block page_content %}
     <div class="section">
-        <p class="section">article.getTitleEn</p>
+        <p class="section">{{ article.getTitleEn }}</p>
     </div>
-    <div class="row article">
+    <div class="row singleArticle">
         <div class="articleSummary">
             <p>{{ article.getCategory.getNameEn }} / {{ article.getReleaseDate|date("Y.m.d") }}</p>
-            <h2 class="titleHeadline">
+            <h1 class="titleHeadline">
                 {{ article.getTitleEn }}
-            </h2>
+            </h1>
             <div class="content">
                 <p>{{ article.getContentEns[0].getText }}</p>
                 <p>{{ article.getCode.getText }}</p>
                 <p>{{ article.getContentEns[1].getText }}</p>
             </div>
+            <a href="{{ path('home') }}">
+                <button type="button">ALL ARTICLES ></button>
+            </a>
         </div>
-        <a href="{{ path('home') }}">
-            <button type="button">ALL ARTICLES ></button>
-        </a>
     </div>
 {% endblock %}
