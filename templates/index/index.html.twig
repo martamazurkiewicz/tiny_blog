@@ -6,58 +6,56 @@
     <div class="section">
         <p class="section">Dynamic Content</p>
         <div class="column-6 article">
-            {% if submitted == false %}
-                <div class="column-7 articleSummary relative">
-                    {% set form = distributionForm.createView %}
-                    {{ form_start(form) }}
-                    <h2 class="titleHeadline">Generate Normal Distribution</h2>
-                    <div class="formGroup">
-                        {{ form_label(form.rangeStart) }}
-                        <div class="formInput">
-                            {{ form_widget(form.rangeStart) }}
-                        </div>
-                    </div>
-                    <div class="formGroup">
-                        {{ form_label(form.sizeOfDataset) }}
-                        <div class="formInput">
-                            {{ form_widget(form.sizeOfDataset) }}
-                        </div>
-                    </div>
-                    <div class="formGroup">
-                        {{ form_label(form.mean) }}
-                        <div class="formInput">
-                            {{ form_widget(form.mean) }}
-                        </div>
-                    </div>
-                    <div class="formGroup" style="margin-bottom: 15px;">
-                        {{ form_label(form.standardDeviation) }}
-                        <div class="formInput">
-                            {{ form_widget(form.standardDeviation) }}
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        {{ form_widget(form.submit) }}
-                    </div>
-                    {{ form_end(form) }}
+            {% for article in articles %}
+                <div class="column-5 articleSummary relative">
+
+                    <h2 class="titleHeadline"> {{ article.getTitleEn() }}</h2>
+                    {% for content in article.getContentEns() %}
+                    <p>{{ content.getText }}</p>
+                    {% endfor %}
+{#                    <div class="formGroup">#}
+{#                        {{ form_label(form.rangeStart) }}#}
+{#                        <div class="formInput">#}
+{#                            {{ form_widget(form.rangeStart) }}#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="formGroup">#}
+{#                        {{ form_label(form.sizeOfDataset) }}#}
+{#                        <div class="formInput">#}
+{#                            {{ form_widget(form.sizeOfDataset) }}#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="formGroup">#}
+{#                        {{ form_label(form.mean) }}#}
+{#                        <div class="formInput">#}
+{#                            {{ form_widget(form.mean) }}#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="formGroup" style="margin-bottom: 15px;">#}
+{#                        {{ form_label(form.standardDeviation) }}#}
+{#                        <div class="formInput">#}
+{#                            {{ form_widget(form.standardDeviation) }}#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="text-center">#}
+{#                        {{ form_widget(form.submit) }}#}
+{#                    </div>#}
+{#                    {{ form_end(form) }}#}
+{#                </div>#}
+{#                <div class="column-5 articleSummary">#}
+{#                    <p>68% of observations are in range between {{ sigmas[0][0] }} and {{ sigmas[0][1] }}</p>#}
+{#                    <p>95% of observations are in range between {{ sigmas[1][0] }} and {{ sigmas[1][1] }}</p>#}
+{#                    <p>99% of observations are in range between {{ sigmas[2][0] }} and {{ sigmas[2][1] }}</p>#}
+{#                    <a href="{{ path('home') }}">#}
+{#                        <button>Close report</button>#}
+{#                    </a>#}
+{#                </div>#}
+{#                <div class="column-7 relative">#}
+{#                    <div class="scrollable">#}
+{#                            <p>text</p>#}
+{#                    </div>#}
                 </div>
-            {% else %}
-                <div class="column-5 articleSummary">
-                    <p>68% of observations are in range between {{ sigmas[0][0] }} and {{ sigmas[0][1] }}</p>
-                    <p>95% of observations are in range between {{ sigmas[1][0] }} and {{ sigmas[1][1] }}</p>
-                    <p>99% of observations are in range between {{ sigmas[2][0] }} and {{ sigmas[2][1] }}</p>
-                    <a href="{{ path('home') }}">
-                        <button>Close report</button>
-                    </a>
-                </div>
-                <div class="column-7 relative">
-                    <div class="scrollable">
-                        <h2 class="titleHeadline">Generated values:</h2>
-                        {% for key,value in pairs %}
-                            <p>f({{ key }}) = {{ value }}</p>
-                        {% endfor %}
-                    </div>
-                </div>
-            {% endif %}
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

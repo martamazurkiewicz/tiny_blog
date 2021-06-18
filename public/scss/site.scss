@@ -97,7 +97,8 @@ button:hover {
   transform: translateY(-4px);
   color: white;
   box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
-  background-color: gray;
+  //background-color: gray;
+  background-color: pink;
   border-color: transparent;
 }
 
@@ -111,14 +112,23 @@ button:hover {
     width: 50%;
     float: left;
   }
-}
-
-.topics {
   a {
     @extend %href-shared;
-    margin-left: 2%;
-    margin-right: 2%;
+    margin-left: 10px;
+    margin-right: 10px;
   }
+
+  //.row {
+  //  a {
+  //    @extend %href-shared;
+  //  }
+  //}
+  //.topics {
+  //  a {
+  //    margin-left: 2%;
+  //    margin-right: 2%;
+  //  }
+  //}
 }
 
 .main {
