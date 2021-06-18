@@ -9,4 +9,5 @@ symfony server:start <br>
 UPDATE CSS: <br>
 php bin/console cache:clear <br>
 AFTER CLONING REPO: <br>
-composer install
+composer install <br>
+PICTURES ARE FROM PIXABAY
