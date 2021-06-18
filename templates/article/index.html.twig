@@ -14,7 +14,11 @@
             </h1>
             <div class="content">
                 <p>{{ article.getContentEns[0].getText }}</p>
-                <p>{{ article.getCode.getText }}</p>
+                <div class="code">
+                    {% for code in article.getCodes %}
+                        {{ code.text }}<br>
+                    {% endfor %}
+                </div>
                 <p>{{ article.getContentEns[1].getText }}</p>
             </div>
             <a href="{{ path('home') }}">

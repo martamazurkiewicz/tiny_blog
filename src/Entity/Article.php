@@ -35,9 +35,9 @@ class Article
     private $title_en;
 
     /**
-     * @ORM\OneToOne(targetEntity=Code::class, cascade={"persist", "remove"}, fetch="EAGER")
+     * @ORM\OneToMany(targetEntity=Code::class, mappedBy="article", orphanRemoval=true)
      */
-    private $code;
+    private $codes;
 
     /**
      * @ORM\OneToMany(targetEntity=ContentPl::class, mappedBy="article", orphanRemoval=true)
@@ -102,14 +102,32 @@ class Article
         return $this;
     }
 
-    public function getCode(): ?Code
+    /**
+     * @return Collection|Code[]
+     */
+    public function getCodes(): Collection
     {
-        return $this->code;
+        return $this->codes;
     }
 
-    public function setCode(?Code $code): self
+    public function addCode(Code $code): self
     {
-        $this->code = $code;
+        if (!$this->codes->contains($code)) {
+            $this->codes[] = $code;
+            $code->setArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCode(Code $code): self
+    {
+        if ($this->codes->removeElement($code)) {
+            // set the owning side to null (unless already changed)
+            if ($code->getArticle() === $this) {
+                $code->setArticle(null);
+            }
+        }
 
         return $this;
     }

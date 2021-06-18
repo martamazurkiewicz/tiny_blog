@@ -18,6 +18,12 @@ class Code
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity=Article::class, inversedBy="codes")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $article;
+
+    /**
      * @ORM\Column(type="string", length=800)
      */
     private $text;
@@ -38,4 +44,17 @@ class Code
 
         return $this;
     }
+
+    public function getArticle(): ?Article
+    {
+        return $this->article;
+    }
+
+    public function setArticle(?Article $article): self
+    {
+        $this->article = $article;
+
+        return $this;
+    }
+
 }

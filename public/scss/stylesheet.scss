@@ -168,9 +168,27 @@ p.section {
   padding: 15px;
   background-color: whitesmoke;
   color: black;
+
   .content {
     font-size: 16px;
     line-height: 130%;
+  }
+
+  .code {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-left: 3px solid #f36d33;
+    color: #666;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
   }
 
 }
@@ -188,7 +206,8 @@ p.section {
 .articleSummary {
   padding-left: 20px;
   padding-right: 20px;
-  .content{
+
+  .content {
     text-align: justify;
     text-justify: inter-word;
   }
