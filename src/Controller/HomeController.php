@@ -22,11 +22,10 @@ class HomeController extends AbstractController
     {
         $em = $this->getDoctrine()->getManager();
         $articles = $em->getRepository(Article::class)->findAll();
-        $recentArticle = $articles[0];
         $articles = $this->getPairs($articles);
 
         return $this->render('index/index.html.twig', [
-            'article' => $recentArticle,
+            'article' => $articles[0][0],
             'articles' => $articles,
         ]);
     }
@@ -39,31 +38,31 @@ class HomeController extends AbstractController
     public function categoryController(Request $request): Response
     {
         $articles = $this->getCategorizedArticles($request->query->get('categoryName'));
-        $recentArticle = $articles[0];
         $articles = $this->getPairs($articles);
 
         return $this->render('index/index.html.twig', [
-            'controller_name' => 'CategoryController',
-            'article' => $recentArticle,
+            'article' => $articles[0][0],
             'articles' => $articles
         ]);
 
     }
 
-    private function getCategorizedArticles(string $categoryName){
+    private function getCategorizedArticles(string $categoryName)
+    {
         $em = $this->getDoctrine()->getManager();
         $category = $em->getRepository(Category::class)->findOneBy(['name_en' => $categoryName]);
         return $em->getRepository(Article::class)->findBy(['category' => $category]);
     }
 
-    private function getPairs(array $articles){
+    private function getPairs(array $articles)
+    {
+        $articles = array_reverse($articles);
         $size = count($articles);
         $result = array();
         for ($i = 0; $i < $size; $i += 2) {
-            if($i+1 < $size) {
+            if ($i + 1 < $size) {
                 $result[] = [$articles[$i], $articles[$i + 1]];
-            }
-            else{
+            } else {
                 $result[] = [$articles[$i]];
             }
         }
