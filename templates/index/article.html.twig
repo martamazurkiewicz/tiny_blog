@@ -1,0 +1,14 @@
+<div class="column-6 article">
+    <div class="column-5 relative">
+        <img src="images\{{ article.getId }}.jpg" alt="{{ article.getId }}"/>
+    </div>
+    <div class="column-7 articleSummary">
+        <p>{{ article.getCategory.getNameEn }} / {{ article.getReleaseDate|date("Y.m.d") }}</p>
+        <h2 class="titleHeadline">
+            <a href="#">{{ article.getTitleEn }}</a>
+        </h2>
+        {% for content in article.getContentEns() %}
+            <p>{{ content.getText }}</p>
+        {% endfor %}
+    </div>
+</div>
