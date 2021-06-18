@@ -7,8 +7,8 @@
         <h2 class="titleHeadline">
             <a href="#">{{ article.getTitleEn }}</a>
         </h2>
-        {% for content in article.getContentEns() %}
-            <p>{{ content.getText }}</p>
-        {% endfor %}
+        <div class="content">
+            <p>{{ article.getContentEns[0].getText }}</p>
+        </div>
     </div>
 </div>

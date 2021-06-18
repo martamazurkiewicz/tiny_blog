@@ -171,6 +171,10 @@ p.section {
   padding-left: 20px;
   padding-right: 20px;
 }
+.articleSummary .content {
+  text-align: justify;
+  text-justify: inter-word;
+}
 
 .footer {
   border-top: 1px solid white;
