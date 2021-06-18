@@ -35,7 +35,7 @@ class Article
     private $title_en;
 
     /**
-     * @ORM\OneToOne(targetEntity=Code::class, cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Code::class, cascade={"persist", "remove"}, fetch="EAGER")
      */
     private $code;
 

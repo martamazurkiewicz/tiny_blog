@@ -4,10 +4,13 @@
     </div>
     <div class="column-5 articleSummary">
         <p>{{ article.getCategory.getNameEn }} / {{ article.getReleaseDate|date("Y.m.d") }}</p>
-        <h1 class="titleHeadline"><a href="#">{{ article.getTitleEn }}</a></h1>
+        <h1 class="titleHeadline"><a href="{{ path('article', {'id': article.getId}) }}">{{ article.getTitleEn }}</a>
+        </h1>
         {% for content in article.getContentEns() %}
             <p>{{ content.getText }}</p>
         {% endfor %}
-        <button type="button">READ ARTICLE ></button>
+        <a href="{{ path('article', {'id': article.getId}) }}">
+            <button type="button">READ ARTICLE ></button>
+        </a>
     </div>
 </div>

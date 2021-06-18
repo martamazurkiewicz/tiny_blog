@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticleController extends AbstractController
 {
     /**
-     * @Route("/article/{id}", name="article_get")
+     * @Route("/article/{id}", name="article")
      * @param int $id
      * @return Response
      */
@@ -29,7 +29,6 @@ class ArticleController extends AbstractController
         return $this->render('article/index.html.twig', [
             'controller_name' => 'ArticleController',
             'article' => $article,
-            'photo' => 'images/' . $article->id . '.jpg',
         ]);
     }
 }

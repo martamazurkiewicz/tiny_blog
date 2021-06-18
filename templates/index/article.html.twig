@@ -5,7 +5,7 @@
     <div class="column-7 articleSummary">
         <p>{{ article.getCategory.getNameEn }} / {{ article.getReleaseDate|date("Y.m.d") }}</p>
         <h2 class="titleHeadline">
-            <a href="#">{{ article.getTitleEn }}</a>
+            <a href="{{ path('article', {'id': article.getId}) }}">{{ article.getTitleEn }}</a>
         </h2>
         <div class="content">
             <p>{{ article.getContentEns[0].getText }}</p>
