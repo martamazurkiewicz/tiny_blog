@@ -7,4 +7,6 @@ sass --watch public/scss:public/css <br>
 START SYMFONY SERVER: <br>
 symfony server:start <br>
 UPDATE CSS: <br>
-php bin/console cache:clear
+php bin/console cache:clear <br>
+AFTER CLONING REPO: <br>
+composer install

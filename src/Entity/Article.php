@@ -50,7 +50,7 @@ class Article
     private $contentEns;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="article")
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="article", fetch="EAGER"))
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;

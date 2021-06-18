@@ -19,8 +19,8 @@ class CategoryController extends AbstractController
     public function index(Request $request): Response
     {
         $articles = $this->getCategorizedArticles($request->query->get('categoryName'));
-        return $this->render('category/index.html.twig', [
-            'controller_name' => 'CareerController',
+        return $this->render('index/index.html.twig', [
+            'controller_name' => 'CategoryController',
             'articles' => $articles
         ]);
 
