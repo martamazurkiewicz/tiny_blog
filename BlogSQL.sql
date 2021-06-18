@@ -27,3 +27,16 @@ INSERT INTO content_en (article_id, text, div_number)
 VALUES (2, "It is best to save lists to SharedPreferences as json", 1);
 INSERT INTO content_en (article_id, text, div_number)
 VALUES (2, "Simple variable type can be written to SharedPreferences", 2);
+
+INSERT INTO code (text) VALUES ("{% include ''index/article.html.twig'' with {''article'': article} %}");
+INSERT INTO category (name_pl, name_en) VALUES ("Symfony", "Symfony");
+INSERT INTO article (code_id, release_date, title_pl, title_en, category_id)
+VALUES (3, curdate(), "Symfony" ,"Symfony", 2);
+INSERT INTO content_pl (article_id, text, div_number)
+VALUES (3, "Cokolwiek", 1);
+INSERT INTO content_pl (article_id, text, div_number)
+VALUES (3,  "Cokolwiek2", 2);
+INSERT INTO content_en (article_id, text, div_number)
+VALUES (3, "Enything", 1);
+INSERT INTO content_en (article_id, text, div_number)
+VALUES (3, "Enything2", 2);
