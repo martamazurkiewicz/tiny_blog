@@ -34,6 +34,8 @@ class Article
      */
     private $title_en;
 
+    private $title;
+
     /**
      * @ORM\OneToMany(targetEntity=Code::class, mappedBy="article", orphanRemoval=true)
      */
@@ -49,11 +51,15 @@ class Article
      */
     private $contentEns;
 
+    private $content;
+
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="article", fetch="EAGER"))
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;
+
+    private $categoryName;
 
     public function __construct()
     {
@@ -98,6 +104,18 @@ class Article
     public function setTitleEn(string $title_en): self
     {
         $this->title_en = $title_en;
+
+        return $this;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
 
         return $this;
     }
@@ -192,6 +210,27 @@ class Article
         return $this;
     }
 
+    /**
+     * @return Collection|string[]
+     */
+    public function getContent(): Collection
+    {
+        return $this->content;
+    }
+
+    public function setContent()
+    {
+        $this->content = new ArrayCollection();
+    }
+
+    public function addContent(string $text): self
+    {
+        if (!$this->content->contains($text)) {
+            $this->content[] = $text;
+        }
+        return $this;
+    }
+
     public function getCategory(): ?Category
     {
         return $this->category;
@@ -203,4 +242,18 @@ class Article
 
         return $this;
     }
+
+    public function getCategoryName(): ?string
+    {
+        return $this->categoryName;
+    }
+
+    public function setCategoryName(string $categoryName): self
+    {
+        $this->categoryName = $categoryName;
+
+        return $this;
+    }
+
+
 }
