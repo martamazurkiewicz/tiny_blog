@@ -1,6 +1,6 @@
 <div class="row article">
     <div class="column-7 relative">
-        <img src="images\{{ article.getId }}.jpg" alt="{{ article.getId }}"/>
+        <img src="images/{{ article.getId }}.jpg" alt="{{ article.getId }}"/>
     </div>
     <div class="column-5 articleSummary">
         <p>{{ article.getCategoryName }} / {{ article.getReleaseDate|date("Y.m.d") }}</p>
@@ -9,10 +9,10 @@
         <div class="content">
             <p>{{ article.getContent[0] }}</p>
         </div>
-        <button type="button">
-            <a href="{{ path('article', {'id': article.getId}) }}">
+        <a href="{{ path('article', {'id': article.getId}) }}">
+            <button>
                 {% trans %}READ ARTICLE{% endtrans %} >
-            </a>
-        </button>
+            </button>
+        </a>
     </div>
 </div>

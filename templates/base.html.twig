@@ -46,11 +46,9 @@
             <div class="column" style="text-align: left;">
                 {# <h3>{% trans into 'pl_PL' %}Tiny programming blog {% endtrans %} </h3> #}
                 <h3>{% trans %}Tiny programming blog {% endtrans %} </h3>
-                <button type="button">
-                    <a href="{{ path('home') }}">
-                        {% trans %}ALL ARTICLES{% endtrans %} >
-                    </a>
-                </button>
+                <a href="{{ path('home') }}">
+                    <button>{% trans %}ALL ARTICLES{% endtrans %} ></button>
+                </a>
             </div>
         </div>
     {% endblock %}
