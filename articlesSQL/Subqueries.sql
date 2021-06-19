@@ -5,7 +5,7 @@ INSERT INTO category (name_pl, name_en) VALUES ("UML", "UML");
 INSERT INTO article (release_date, title_en, title_pl, category_id)
 VALUES (curdate(), "What are subqueries?" ,"Co to podzapytania (subqueries)?", 3);
 
-INSERT INTO code (text,article_id) VALUES ("SELECT LONG, 4 FROM STATION WHERE LAT = (SELECT MAX(LAT) FROM STATION WHERE LAT < 137.2345);", 4);
+INSERT INTO code (text,article_id) VALUES ("SELECT LONG FROM STATION WHERE LAT = (SELECT MAX(LAT) FROM STATION WHERE LAT < 137.2345);", 4);
 INSERT INTO code (text,article_id) VALUES ("SELECT * FROM Boats WHERE price < (SELECT max(price) FROM Cars);", 4);
 
 INSERT INTO content_pl (article_id, text, div_number)
