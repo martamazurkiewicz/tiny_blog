@@ -61,3 +61,14 @@ SET
      Aby wyzwolić zdarzenie, musisz dodać je do zlewu (sink) obiektu StreamControllera."
 WHERE
     id = 2;
+
+UPDATE code
+SET
+    text =
+    "SharedPreferences sharedPreferences = await SharedPreferences.getInstance(); <br>
+    String jsonString = jsonEncode(this.toJson()); <br>
+    await sharedPreferences.setString('searchHistory', jsonString); <br>
+    Map<String, dynamic> searchHistoryMap = jsonDecode(await sharedPreferences.getString('searchHistory') ?? '{}'); <br>
+    final searchHistory = SearchHistory.fromJson(searchHistoryMap);" 
+WHERE
+    id = 2;
