@@ -4,16 +4,16 @@
 {% endblock %}
 {% block page_content %}
     <div class="section">
-        <p class="section">{{ article.getTitleEn }}</p>
+        <p class="section">{{ article.getTitle }}</p>
     </div>
     <div class="row singleArticle">
         <div class="articleSummary">
-            <p>{{ article.getCategory.getNameEn }} / {{ article.getReleaseDate|date("Y.m.d") }}</p>
+            <p>{{ article.getCategoryName }} / {{ article.getReleaseDate|date("Y.m.d") }}</p>
             <h1 class="titleHeadline">
-                {{ article.getTitleEn }}
+                {{ article.getTitle }}
             </h1>
             <div class="content">
-                <p>{{ article.getContentEns[0].getText }}</p>
+                <p>{{ article.getContent[0] }}</p>
                 {% if article.getCodes|length > 0 %}
                     <div class="code">
                         {% for code in article.getCodes %}
@@ -21,10 +21,10 @@
                         {% endfor %}
                     </div>
                 {% endif %}
-                <p>{{ article.getContentEns[1].getText }}</p>
+                <p>{{ article.getContent[1] }}</p>
             </div>
             <a href="{{ path('home') }}">
-                <button type="button">ALL ARTICLES ></button>
+                <button type="button">{% trans %}ALL ARTICLES{% endtrans %} ></button>
             </a>
         </div>
     </div>

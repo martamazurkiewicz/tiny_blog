@@ -3,12 +3,12 @@
         <img src="images\{{ article.getId }}.jpg" alt="{{ article.getId }}"/>
     </div>
     <div class="column-7 articleSummary">
-        <p>{{ article.getCategory.getNameEn }} / {{ article.getReleaseDate|date("Y.m.d") }}</p>
+        <p>{{ article.getCategoryName }} / {{ article.getReleaseDate|date("Y.m.d") }}</p>
         <h2 class="titleHeadline">
-            <a href="{{ path('article', {'id': article.getId}) }}">{{ article.getTitleEn }}</a>
+            <a href="{{ path('article', {'id': article.getId}) }}">{{ article.getTitle }}</a>
         </h2>
         <div class="content">
-            <p>{{ article.getContentEns[0].getText }}</p>
+            <p>{{ article.getContent[0] }}</p>
         </div>
     </div>
 </div>
