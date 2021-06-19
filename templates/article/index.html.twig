@@ -4,7 +4,7 @@
 {% endblock %}
 {% block page_content %}
     <div class="section">
-        <p class="section">{{ article.getTitleEn }}</p>
+        <p class="section">{{ article.getTitle }}</p>
     </div>
     <div class="row singleArticle">
         <div class="articleSummary">
@@ -24,7 +24,7 @@
                 <p>{{ article.getContent[1] }}</p>
             </div>
             <a href="{{ path('home') }}">
-                <button type="button">ALL ARTICLES ></button>
+                <button type="button">{% trans %}ALL ARTICLES{% endtrans %} ></button>
             </a>
         </div>
     </div>

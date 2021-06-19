@@ -33,7 +33,7 @@
                 </a>
             </div>
             <div class="topics">
-                <a href="{{ path('category', {'categoryName': 'Database'}) }}">Databases</a>
+                <a href="{{ path('category', {'categoryName': 'Database'}) }}">{% trans %}Databases{% endtrans %}</a>
                 <a href="{{ path('category', {'categoryName': 'Oracle'}) }}">Oracle</a>
                 <a href="{{ path('category', {'categoryName': 'Symfony'}) }}">Symfony</a>
                 <a href="{{ path('category', {'categoryName': 'Python'}) }}">Python</a>
@@ -47,7 +47,7 @@
                 {# <h3>{% trans into 'pl_PL' %}Tiny programming blog {% endtrans %} </h3> #}
                 <h3>{% trans %}Tiny programming blog {% endtrans %} </h3>
                 <a href="{{ path('home') }}">
-                    <button type="button">ALL ARTICLES ></button>
+                    <button type="button">{% trans %}ALL ARTICLES{% endtrans %} ></button>
                 </a>
             </div>
         </div>
@@ -56,14 +56,14 @@
     {% endblock %}
     {% block footer %}
         <div class="footer">
-            Designed by Marta Mazurkiewicz, 2021
+            {% trans %}Designed by{% endtrans %} Marta Mazurkiewicz, 2021
         </div>
     {% endblock %}
     <div class="cookie-container">
         <p>
-            This website uses cookies to give you the best user experience and optimize its performance.
-            To find out more, read the
-            <a href="#">privacy policy</a> and <a href="#">cookie policy</a>.
+            {% trans %}This website uses cookies to give you the best user experience and optimize its performance. To find out more, read the{% endtrans %}
+            <a href="#">{% trans %}privacy policy{% endtrans %}</a>{% trans %} and {% endtrans %}<a
+                    href="#">{% trans %}cookie policy{% endtrans %}</a>.
         </p>
 
         <button class="button cookie-btn">

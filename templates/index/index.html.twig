@@ -4,11 +4,11 @@
 {% endblock %}
 {% block page_content %}
     <div class="section">
-        <p class="section">Recent</p>
+        <p class="section">{% trans %}Recent{% endtrans %}</p>
         {% include 'index/recent.html.twig' with {'article': article} %}
     </div>
     <div class="section">
-        <p class="section">All Articles</p>
+        <p class="section">{% trans %}All Articles{% endtrans %}</p>
         {% for pair in articles %}
             <div class="row">
                 {% for article in pair %}
