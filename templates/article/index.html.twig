@@ -23,9 +23,11 @@
                 {% endif %}
                 <p>{{ article.getContent[1] }}</p>
             </div>
-            <a href="{{ path('home') }}">
-                <button type="button">{% trans %}ALL ARTICLES{% endtrans %} ></button>
-            </a>
+            <button type="button">
+                <a href="{{ path('home') }}">
+                    {% trans %}ALL ARTICLES{% endtrans %} >
+                </a>
+            </button>
         </div>
     </div>
 {% endblock %}

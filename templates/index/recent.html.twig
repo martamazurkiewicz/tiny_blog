@@ -9,8 +9,10 @@
         <div class="content">
             <p>{{ article.getContent[0] }}</p>
         </div>
-        <a href="{{ path('article', {'id': article.getId}) }}">
-            <button type="button">{% trans %}READ ARTICLE{% endtrans %} ></button>
-        </a>
+        <button type="button">
+            <a href="{{ path('article', {'id': article.getId}) }}">
+                {% trans %}READ ARTICLE{% endtrans %} >
+            </a>
+        </button>
     </div>
 </div>

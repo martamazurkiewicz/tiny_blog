@@ -46,9 +46,11 @@
             <div class="column" style="text-align: left;">
                 {# <h3>{% trans into 'pl_PL' %}Tiny programming blog {% endtrans %} </h3> #}
                 <h3>{% trans %}Tiny programming blog {% endtrans %} </h3>
-                <a href="{{ path('home') }}">
-                    <button type="button">{% trans %}ALL ARTICLES{% endtrans %} ></button>
-                </a>
+                <button type="button">
+                    <a href="{{ path('home') }}">
+                        {% trans %}ALL ARTICLES{% endtrans %} >
+                    </a>
+                </button>
             </div>
         </div>
     {% endblock %}
@@ -62,7 +64,7 @@
     <div class="cookie-container">
         <p>
             {% trans %}This website uses cookies to give you the best user experience and optimize its performance. To find out more, read the{% endtrans %}
-            <a href="#">{% trans %}privacy policy{% endtrans %}</a>{% trans %} and {% endtrans %}<a
+            <a href="#">{% trans %}privacy policy{% endtrans %}</a> {% trans %}and{% endtrans %} <a
                     href="#">{% trans %}cookie policy{% endtrans %}</a>.
         </p>
 
