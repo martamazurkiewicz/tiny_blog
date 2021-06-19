@@ -37,7 +37,13 @@ class HomeController extends AbstractController
      */
     public function categoryController(Request $request): Response
     {
-        $articles = $this->getCategorizedArticles($request->query->get('categoryName'));
+        $categoryName = $request->query->get('categoryName');
+        $articles = $this->getCategorizedArticles($categoryName);
+        if (empty($articles)) {
+            throw $this->createNotFoundException(
+                'No article found for category ' . $categoryName
+            );
+        }
         $articles = $this->getPairs($articles);
 
         return $this->render('index/index.html.twig', [
