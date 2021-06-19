@@ -4,7 +4,6 @@
 }
 
 .article {
-  border-color: black;
   border-width: 5px;
   border-style: solid;
 }
@@ -81,7 +80,7 @@ body {
   align-items: center;
   margin-left: 10%;
   margin-right: 10%;
-  background-color: black;
+  background-color: #222222;
   text-align: center;
   font-family: Roboto, sans-serif;
   color: white;
@@ -102,7 +101,7 @@ button:hover {
   transform: translateY(-4px);
   color: white;
   box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
-  background-color: pink;
+  background-color: gray;
   border-color: transparent;
 }
 
@@ -121,6 +120,9 @@ button:hover {
   margin-left: 10px;
   margin-right: 10px;
 }
+.navbar .topics {
+  font-size: 18px;
+}
 
 .main {
   text-align: left;
@@ -135,7 +137,7 @@ div.section {
 }
 
 p.section {
-  font-size: 0.6em;
+  font-size: 12px;
   color: lightgray;
 }
 
@@ -143,11 +145,16 @@ p.section {
   text-align: left;
   padding: 5px;
   background-color: white;
-  color: black;
+  color: #222222;
 }
 .article a {
   color: black;
   text-decoration: none;
+}
+.article img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .relative {
@@ -163,6 +170,10 @@ p.section {
 .articleSummary {
   padding-left: 20px;
   padding-right: 20px;
+}
+.articleSummary .content {
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .footer {
@@ -207,4 +218,4 @@ a:hover {
   font-size: 0.9em;
 }
 
-/*# sourceMappingURL=site.css.map */
+/*# sourceMappingURL=base.css.map */

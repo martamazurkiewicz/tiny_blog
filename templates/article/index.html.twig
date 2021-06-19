@@ -1,0 +1,31 @@
+{% extends ('base.html.twig') %}
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+{% block page_content %}
+    <div class="section">
+        <p class="section">{{ article.getTitle }}</p>
+    </div>
+    <div class="row singleArticle">
+        <div class="articleSummary">
+            <p>{{ article.getCategoryName }} / {{ article.getReleaseDate|date("Y.m.d") }}</p>
+            <h1 class="titleHeadline">
+                {{ article.getTitle }}
+            </h1>
+            <div class="content">
+                <p>{{ article.getContent[0] }}</p>
+                {% if article.getCodes|length > 0 %}
+                    <div class="code">
+                        {% for code in article.getCodes %}
+                            {{ code.text }}<br>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <p>{{ article.getContent[1] }}</p>
+            </div>
+            <a href="{{ path('home') }}">
+                <button type="button">{% trans %}ALL ARTICLES{% endtrans %} ></button>
+            </a>
+        </div>
+    </div>
+{% endblock %}

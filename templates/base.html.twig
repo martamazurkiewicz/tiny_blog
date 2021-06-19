@@ -4,73 +4,89 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>{% block title %}Tiny programming blog{% endblock %}</title>
-    <link rel="stylesheet" href="{{ asset('css/site.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/stylesheet.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/cookies.css') }}"/>
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon"/>
     {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
     {% block stylesheets %}
         {# {{ encore_entry_link_tags('app') }} #}
     {% endblock %}
 
-    {% block javascripts %}
-        {# {{ encore_entry_script_tags('app') }} #}
-    {% endblock %}
+    {# {% block javascripts %} #}
+    {# {{ encore_entry_script_tags('app') }} #}
+    {# {% endblock %} #}
 </head>
 <body>
 {% block body %}
     {% block navbar %}
         <div class="navbar">
+            <div class="row" style="text-align: right;">
+                <a href="{{ path('lang', {'local': 'pl_PL'}) }}"><img src="{{ asset('images/pl.jpg') }}" alt="pl"/></a>
+                <a href="{{ path('lang', {'local': 'en'}) }}"><img src="{{ asset('images/en.jpg') }}" alt="en"/></a>
+            </div>
             <div class="row">
-                <div class="column" style="text-align: left;">
-                    <a href="#">
-                        <img src="{{ asset('images/menu_icon.ico') }}" alt="menu"/>
-                    </a>
-                    <a href="#">
-                        <img src="{{ asset('images/search_icon.ico') }}" alt="search"/>
-                    </a>
-                </div>
-                <div class="column" style="text-align: right;">
-                    <a href="#">
-                        <img src="{{ asset('images/facebook_icon.ico') }}" alt="facebook"/>
-                    </a>
-                    <a href="#">
-                        <img src="{{ asset('images/twitter_icon.ico') }}" alt="twitter"/>
-                    </a>
-                </div>
-                <div class="row">
-                    <h2>
+                <a href="{{ path('home') }}">
+                    <h1>
                         Well, yes... But how to code it?
-                    </h2>
-                </div>
+                    </h1>
+                </a>
             </div>
             <div class="topics">
-                <a href="#">Databases</a>
-                <a href="#">.NET</a>
-                <a href="#">Raspberry Pi</a>
-                <a href="#">Arduino</a>
-                <a href="#">Python</a>
-                <a href="#">Flutter</a>
+                <a href="{{ path('category', {'categoryName': 'Database'}) }}">{% trans %}Databases{% endtrans %}</a>
+                <a href="{{ path('category', {'categoryName': 'Oracle'}) }}">Oracle</a>
+                <a href="{{ path('category', {'categoryName': 'Symfony'}) }}">Symfony</a>
+                <a href="{{ path('category', {'categoryName': 'Python'}) }}">Python</a>
+                <a href="{{ path('category', {'categoryName': 'Flutter'}) }}">Flutter</a>
             </div>
         </div>
     {% endblock %}
     {% block main %}
         <div class="main" style="background-image: url('{{ asset('images/background.jpg') }}')">
-            <h3>Tiny programming blog</h3>
-            <button type="button">ALL ARTICLES ></button>
+            <div class="column" style="text-align: left;">
+                {# <h3>{% trans into 'pl_PL' %}Tiny programming blog {% endtrans %} </h3> #}
+                <h3>{% trans %}Tiny programming blog {% endtrans %} </h3>
+                <a href="{{ path('home') }}">
+                    <button type="button">{% trans %}ALL ARTICLES{% endtrans %} ></button>
+                </a>
+            </div>
         </div>
     {% endblock %}
     {% block page_content %}
     {% endblock %}
     {% block footer %}
         <div class="footer">
-            <a href="#">ABOUT</a>
-            <a href="#">PRIVACY</a>
-            <a href="#">SOCIAL</a>
-            <a href="#">CONTACT</a>
-            <p>
-                Designed by Marta Mazurkiewicz
-            </p>
+            {% trans %}Designed by{% endtrans %} Marta Mazurkiewicz, 2021
         </div>
     {% endblock %}
+    <div class="cookie-container">
+        <p>
+            {% trans %}This website uses cookies to give you the best user experience and optimize its performance. To find out more, read the{% endtrans %}
+            <a href="#">{% trans %}privacy policy{% endtrans %}</a>{% trans %} and {% endtrans %}<a
+                    href="#">{% trans %}cookie policy{% endtrans %}</a>.
+        </p>
+
+        <button class="button cookie-btn">
+            OKAY
+        </button>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        const cookieContainer = document.querySelector(".cookie-container");
+        const cookieButton = document.querySelector(".cookie-btn");
+
+        cookieButton.addEventListener("click", () => {
+            cookieContainer.classList.remove("active");
+            localStorage.setItem("cookieBannerDisplayed", "true");
+        });
+
+        setTimeout(() => {
+            if (!localStorage.getItem("cookieBannerDisplayed")) {
+                cookieContainer.classList.add("active");
+            }
+        }, 2000);
+    </script>
 {% endblock %}
 </body>
 </html>

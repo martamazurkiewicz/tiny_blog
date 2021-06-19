@@ -3,8 +3,8 @@
   text-decoration: none;
 }
 
-.article {
-  border-color: black;
+.singleArticle, .article {
+  border-color: #222222;
   border-width: 5px;
   border-style: solid;
 }
@@ -18,7 +18,7 @@
   width: 100%;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1200px) {
   .column-1 {
     width: 8.33%;
   }
@@ -81,7 +81,7 @@ body {
   align-items: center;
   margin-left: 10%;
   margin-right: 10%;
-  background-color: black;
+  background-color: #222222;
   text-align: center;
   font-family: Roboto, sans-serif;
   color: white;
@@ -102,7 +102,7 @@ button:hover {
   transform: translateY(-4px);
   color: white;
   box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
-  background-color: pink;
+  background-color: gray;
   border-color: transparent;
 }
 
@@ -110,8 +110,8 @@ button:hover {
   border-bottom: 1px solid white;
 }
 .navbar img {
-  height: 23px;
-  width: 23px;
+  height: 20px;
+  width: 30px;
 }
 .navbar .column {
   width: 50%;
@@ -120,6 +120,9 @@ button:hover {
 .navbar a {
   margin-left: 10px;
   margin-right: 10px;
+}
+.navbar .topics {
+  font-size: 18px;
 }
 
 .main {
@@ -135,7 +138,7 @@ div.section {
 }
 
 p.section {
-  font-size: 0.6em;
+  font-size: 12px;
   color: lightgray;
 }
 
@@ -148,6 +151,41 @@ p.section {
 .article a {
   color: black;
   text-decoration: none;
+}
+.article img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.article p {
+  line-height: 130%;
+}
+
+.singleArticle {
+  text-align: left;
+  padding: 15px;
+  background-color: whitesmoke;
+  color: black;
+}
+.singleArticle .content {
+  font-size: 16px;
+  line-height: 130%;
+}
+.singleArticle .code {
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  border-left: 3px solid #f36d33;
+  color: #666;
+  page-break-inside: avoid;
+  font-family: monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 1.6em;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1em 1.5em;
+  display: block;
+  word-wrap: break-word;
 }
 
 .relative {
@@ -163,6 +201,10 @@ p.section {
 .articleSummary {
   padding-left: 20px;
   padding-right: 20px;
+}
+.articleSummary .content {
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .footer {
@@ -194,17 +236,4 @@ a:hover {
   cursor: pointer;
 }
 
-.formInput {
-  margin-bottom: 2px;
-  margin-top: 2px;
-}
-
-.formGroup {
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-.formGroup label {
-  font-size: 0.9em;
-}
-
-/*# sourceMappingURL=site.css.map */
+/*# sourceMappingURL=stylesheet.css.map */
