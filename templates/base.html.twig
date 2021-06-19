@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>{% block title %}Tiny programming blog{% endblock %}</title>
     <link rel="stylesheet" href="{{ asset('css/stylesheet.css') }}"/>
-    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+    <link rel="stylesheet" href="{{ asset('css/cookies.css') }}"/>
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}"/>
     {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
     {% block stylesheets %}
         {# {{ encore_entry_link_tags('app') }} #}
     {% endblock %}
 
-    {% block javascripts %}
+    {#  {% block javascripts %} #}
         {# {{ encore_entry_script_tags('app') }} #}
-    {% endblock %}
+    {#  {% endblock %} #}
 </head>
 <body>
 {% block body %}
@@ -56,6 +57,34 @@
             Write me at email
         </div>
     {% endblock %}
+    <div class="cookie-container">
+        <p>
+            This website uses cookies to give you the best user experience and optimize its performance.
+            To find out more, read the
+            <a href="#">privacy policy</a> and <a href="#">cookie policy</a>.
+        </p>
+
+        <button class="button cookie-btn">
+            OKAY
+        </button>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        const cookieContainer = document.querySelector(".cookie-container");
+        const cookieButton = document.querySelector(".cookie-btn");
+
+        cookieButton.addEventListener("click", () => {
+            cookieContainer.classList.remove("active");
+            localStorage.setItem("cookieBannerDisplayed", "true");
+        });
+
+        setTimeout(() => {
+            if (!localStorage.getItem("cookieBannerDisplayed")) {
+                cookieContainer.classList.add("active");
+            }
+        }, 2000);
+    </script>
 {% endblock %}
 </body>
 </html>

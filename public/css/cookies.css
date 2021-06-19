@@ -1,0 +1,29 @@
+.cookie-container {
+  position: fixed;
+  bottom: -100%;
+  left: 0;
+  right: 0;
+  background: #444444;
+  color: white;
+  padding: 10px 32px;
+  box-shadow: 0 -2px 16px rgba(47, 54, 64, 0.39);
+  transition: 400ms;
+  font-size: 18px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.cookie-container a {
+  color: antiquewhite;
+}
+
+.cookie-container.active {
+  bottom: 0;
+}
+
+.cookie-btn {
+  background: whitesmoke;
+  padding: 10px 40px;
+  font-size: 16px;
+}
+
+/*# sourceMappingURL=cookies.css.map */
