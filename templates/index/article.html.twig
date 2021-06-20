@@ -1,6 +1,6 @@
 <div class="column-6 article">
-    <div class="column-5" style="position: relative;height: 360px;">
-        <img src="images/{{ article.getId }}.jpg" alt="{{ article.getId }}"/>
+    <div class="column-5" style="position: relative;">
+        <img src="images/{{ article.getId }}.jpg" alt="{{ article.getId }}" style="width: 100%; height: 360px; object-fit: cover;"/>
     </div>
     <div class="column-7 articleSummary">
         <p>{{ article.getCategoryName }} / {{ article.getReleaseDate|date("Y.m.d") }}</p>
