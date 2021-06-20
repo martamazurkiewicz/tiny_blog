@@ -9,10 +9,17 @@
         <div class="content">
             <p>{{ article.getContent[0] }}</p>
         </div>
-        <a href="{{ path('article', {'id': article.getId}) }}">
-            <button>
-                {% trans %}READ ARTICLE{% endtrans %} >
-            </button>
-        </a>
+        <button onclick="toArticle({{ article.getId }})">
+            {% trans %}READ ARTICLE{% endtrans %} >
+        </button>
     </div>
+    {% block js %}
+        <script>
+            function toArticle(articleID) {
+                let url = "{{ path('article', {'id': 'article_id'}) }}";
+                url = url.replace('article_id', articleID);
+                location.href = url;
+            }
+        </script>
+    {% endblock %}
 </div>

@@ -17,17 +17,15 @@
                 {% if article.getCodes|length > 0 %}
                     <div class="code">
                         {% for code in article.getCodes %}
-                            {{ code.text }}<br>
+                            <p style="font-size: 16px;">{{ code.text }}</p>
                         {% endfor %}
                     </div>
                 {% endif %}
                 <p>{{ article.getContent[1] }}</p>
             </div>
-            <a href="{{ path('home') }}">
-                <button>
-                    {% trans %}ALL ARTICLES{% endtrans %} >
-                </button>
-            </a>
+            <button onclick="redirectHome()">
+                {% trans %}ALL ARTICLES{% endtrans %} >
+            </button>
         </div>
     </div>
 {% endblock %}
