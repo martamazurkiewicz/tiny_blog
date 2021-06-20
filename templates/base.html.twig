@@ -46,9 +46,9 @@
             <div class="column" style="text-align: left;">
                 {# <h3>{% trans into 'pl_PL' %}Tiny programming blog {% endtrans %} </h3> #}
                 <h3>{% trans %}Tiny programming blog {% endtrans %} </h3>
-                <a href="{{ path('home') }}">
-                    <button>{% trans %}ALL ARTICLES{% endtrans %} ></button>
-                </a>
+                <button onclick="redirectHome()">
+                    {% trans %}ALL ARTICLES{% endtrans %} >
+                </button>
             </div>
         </div>
     {% endblock %}
@@ -86,6 +86,10 @@
                 cookieContainer.classList.add("active");
             }
         }, 2000);
+
+        function redirectHome() {
+            location.href = "{{ path('home') }}";
+        }
     </script>
 {% endblock %}
 </body>
