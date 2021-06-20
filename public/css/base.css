@@ -1,4 +1,4 @@
-.footer a, .navbar a {
+.navbar a {
   color: white;
   text-decoration: none;
 }
@@ -40,10 +40,6 @@ button:hover {
 
 .navbar {
   border-bottom: 1px solid white;
-}
-.navbar img {
-  height: 20px;
-  width: 30px;
 }
 .navbar a {
   margin-left: 10px;
@@ -116,11 +112,6 @@ p.section {
   word-wrap: break-word;
 }
 
-.relative {
-  position: relative;
-  height: 360px;
-}
-
 .articleSummary {
   padding-left: 20px;
   padding-right: 20px;
@@ -133,10 +124,6 @@ p.section {
 .footer {
   border-top: 1px solid white;
   padding-top: 1%;
-}
-.footer a {
-  margin-left: 5%;
-  margin-right: 5%;
 }
 
 .titleHeadline {

@@ -46,11 +46,6 @@ button:hover {
 .navbar {
   border-bottom: $white-line-solid;
 
-  img {
-    height: 20px;
-    width: 30px;
-  }
-
   a {
     @extend %href-shared;
     margin-left: 10px;
@@ -133,11 +128,6 @@ p.section {
 
 }
 
-.relative {
-  position: relative;
-  height: 360px;
-}
-
 .articleSummary {
   padding-left: 20px;
   padding-right: 20px;
@@ -151,12 +141,6 @@ p.section {
 .footer {
   border-top: $white-line-solid;
   padding-top: 1%;
-
-  a {
-    @extend %href-shared;
-    margin-left: 5%;
-    margin-right: 5%;
-  }
 }
 
 .titleHeadline {
