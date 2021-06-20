@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>{% block title %}Tiny programming blog{% endblock %}</title>
-    <link rel="stylesheet" href="{{ asset('css/stylesheet.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/base.css') }}"/>
     <link rel="stylesheet" href="{{ asset('css/cookies.css') }}"/>
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon"/>
     {# Run `composer require symfony/webpack-encore-bundle`
@@ -22,7 +22,7 @@
     {% block navbar %}
         <div class="navbar">
             <div class="row" style="text-align: right;">
-                <a href="{{ path('lang', {'local': 'pl_PL'}) }}"><img src="{{ asset('images/pl.jpg') }}" alt="pl"/></a>
+                <a href="{{ path('lang', {'local': 'pl_PL'}) }}"><img src="{{ asset('images/pl.jpg') }} " alt="pl"/></a>
                 <a href="{{ path('lang', {'local': 'en'}) }}"><img src="{{ asset('images/en.jpg') }}" alt="en"/></a>
             </div>
             <div class="row">
