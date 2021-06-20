@@ -4,11 +4,14 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>{% block title %}Tiny programming blog{% endblock %}</title>
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}"/>
+    {#  <link rel="stylesheet" href="{{ asset('css/styles.css') }}"/> #}
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon"/>
     {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
     {% block stylesheets %}
+        <style>
+            *{box-sizing:border-box}[class*=column-]{float:left;width:100%}@media only screen and (min-width:1200px){.column-1{width:8.33%}.column-2{width:16.66%}.column-3{width:25%}.column-4{width:33.33%}.column-5{width:41.66%}.column-6{width:50%}.column-7{width:58.33%}.column-8{width:66.66%}.column-9{width:75%}.column-10{width:83.33%}.column-11{width:91.66%}.column-12{width:100%}}.row::after{content:"";clear:both;display:table}.article,.singleArticle{border-color:#222;border-width:5px;border-style:solid}body{margin-left:10%;margin-right:10%;background-color:#222;font-family:Roboto,sans-serif;color:#fff}button{background-color:#fff;border:2px solid #000;color:#000;padding:12px 25px;border-radius:5px;font-size:12px;cursor:pointer;box-shadow:0 8px 15px rgba(0,0,0,.2)}button:hover{transform:translateY(-4px);color:#fff;box-shadow:0 15px 20px rgba(0,0,0,.3);background-color:gray;border-color:transparent}.navbar{border-bottom:1px solid #fff;text-align:center}.navbar a{color:#fff;text-decoration:none;margin-left:10px;margin-right:10px}.navbar .topics{font-size:18px}.main{text-align:left;padding-left:10%;padding-bottom:2%;padding-top:2%}div.section{border-top:1px dotted #fff;text-align:center}p.section{font-size:12px;color:#d3d3d3}.article{text-align:left;padding:5px;background-color:#fff;color:#000}.article a{color:#000;text-decoration:none}.article p{line-height:130%}.singleArticle{text-align:left;padding:15px;background-color:#f5f5f5;color:#000}.singleArticle .content{font-size:16px;line-height:130%}.singleArticle .code{background:#f4f4f4;border:1px solid #ddd;border-left:3px solid #f36d33;color:#666;page-break-inside:avoid;font-family:monospace;font-size:15px;line-height:1.6;margin-bottom:1.6em;max-width:100%;overflow:auto;padding:1em 1.5em;display:block;word-wrap:break-word}.articleSummary{padding-left:20px;padding-right:20px}.articleSummary .content{text-align:justify;text-justify:inter-word}.footer{border-top:1px solid #fff;padding-top:1%;text-align:center}.titleHeadline{border-bottom:2px solid #000;padding-bottom:2%;text-overflow:clip}a:hover{color:gray;cursor:pointer}.cookie-container{position:fixed;bottom:-100%;left:0;right:0;background:#444;color:#fff;padding:10px 32px;box-shadow:0 -2px 16px rgba(47,54,64,.39);transition:.4s;font-size:18px;border-top-left-radius:15px;border-top-right-radius:15px;text-align:center}.cookie-container a{color:#faebd7}.cookie-container.active{bottom:0}.cookie-btn{background:#f5f5f5;padding:10px 40px;font-size:16px}
+        </style>
         {# {{ encore_entry_link_tags('app') }} #}
     {% endblock %}
 
