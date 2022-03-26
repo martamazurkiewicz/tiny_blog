@@ -1,0 +1,30 @@
+_id: req_52d9ae0adfe9442fb55d7360888d012b
+type: Request
+parentId: fld_694ccbd74ca94c86a4554808592e5c1e
+modified: 1648328840143
+created: 1648328762515
+url: http://127.0.0.1:8000/app/login
+name: login
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+        "email": "admin@test.com",
+        "password": "admin"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1c8d15eafc1045bfa132a7b2964de345
+authentication: {}
+metaSortKey: -1648328762515
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

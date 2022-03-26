@@ -1,0 +1,30 @@
+_id: req_067350e215fc43348b65a9b1f83c721d
+type: Request
+parentId: fld_694ccbd74ca94c86a4554808592e5c1e
+modified: 1648328842053
+created: 1647708152380
+url: http://127.0.0.1:8000/app/register
+name: register
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+        "email": "admin@test.com",
+        "password": "admin"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_ea8ac9accdcd4b4eb3d0e480dd6f2b87
+authentication: {}
+metaSortKey: -1648173586539.25
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
